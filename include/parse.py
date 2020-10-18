@@ -17,6 +17,9 @@ def ip_range(start_ip, end_ip):
 
     return ip_range
 
+def port_range(start_ip, end_ip):
+    return [int(i) for i in range(int(start_ip), int(end_ip) + 1)]
+
 def ip(ip: str) -> list:
     if "/" in ip:
         return [str(i) for i in ipaddress.IPv4Network(ip)]
@@ -26,4 +29,7 @@ def ip(ip: str) -> list:
         return [ip]
 
 def port(port: str) -> list:
-    return [int(p) for p in port.split(",")]
+    if "-" in port:
+        return port_range(port.split("-")[0], port.split("-")[1])
+    else:
+        return [int(p) for p in port.split(",")]
