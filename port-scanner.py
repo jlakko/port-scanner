@@ -1,7 +1,7 @@
 # Found on GitHub: https://github.com/jlakko/port-scanner
 
 import argparse, sys
-# from fpdf import FPDF
+from fpdf import FPDF
 
 from include import my_scan, parse
 
